@@ -1,0 +1,28 @@
+apply plugin: "io.github.jamesfchen.module-publisher-plugin"
+publish {
+    name="base-plugin-ktx"
+    groupId = rootProject.groupId
+    artifactId = "base-plugin-ktx"
+    version = "1.0.0"
+    website = "https://github.com/JamesfChen/bundles-assembler"
+}
+
+apply plugin: 'java-library'
+java {
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+}
+
+apply plugin: 'kotlin'
+compileKotlin {
+    kotlinOptions.jvmTarget = "17"
+}
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    compileOnly(libs.android.gradlePlugin)
+    implementation 'commons-io:commons-io:2.11.0'
+    implementation 'com.google.guava:guava:24.1-jre'
+    implementation 'commons-codec:commons-codec:1.15'
+    api gradleApi()
+
+}
