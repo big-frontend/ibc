@@ -13,35 +13,6 @@ implementation 'io.github.jamesfchen:base-plugin:1.0.2'
 or implementation 'io.github.jamesfchen:base-plugin-ktx:1.0.0'
 ```
 
-> lifecycle-plugin
-
-```gradle
-plugins {
-    id 'io.github.jamesfchen.lifecycle-plugin' version '1.0.1'
-}
-
-api 'io.github.jamesfchen:lifecycle-api:1.0.3'
-```
-
-```java
-@App  //在AppLicatioin子类添加@App注解
-public class TApp extends Application {
-    //必须继承onCreate，插桩代码会在这里插入代码
-    @Override
-    public void onCreate() {
-        super.onCreate();
-    }
-    ....
-}
-@AppLifecycle // 在LifecycleObserver子类添加@AppLifecycle
-public class AppLifecycleObserver implements LifecycleObserver {
-    @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
-    public void connectListener(LifecycleOwner lifecycleOwner) {
-        Log.d("cjf", "AppLifecycleObserver connectListener");
-    }
-}
-```
-
 > ibc-plugin
 
 ```
@@ -52,45 +23,6 @@ implementation 'io.github.jamesfchen:ibc-api:1.+'
 public class Bundle1Router implements IModuleRouter {
 }
 ```
-> module-publisher-plugin
-
-```gradle
-apply plugin: 'io.github.jamesfchen.module-publisher-plugin'
-publish{
-    name="lifecycle-api"
-    groupId = rootProject.groupId
-    artifactId = "lifecycle-api"
-    version = "1.0.0"
-    website = "https://github.com/JamesfChen/spacecraft-android-gradle-plugin"
-}
-```
-
-> bundles-assembler-plugin
-```gradle
-//app 模块
-plugins{
-      id 'io.github.jamesfchen.app-plugin'
- }
-//bundle插件自带路由，该插件主要用于bundle模块
-plugins{
-    id 'io.github.jamesfchen.nsbundle-plugin'
-}
-//foundation插件用于基础功能模块
-plugins{
-    id 'io.github.jamesfchen.nsbundle-plugin'
-}
-//业务组件ibc中的cpbc 模块
-plugins{
-      id 'io.github.jamesfchen.api-plugin'
- }
-
-//处理模块的厨师，放在rootProject的build.gradle
-plugins{
-    id 'io.github.jamesfchen.module-chef-plugin'
-}
-```
-
-`To Be Continue ...`
 
 ## 插桩(instrumentation)分类:
 
@@ -128,4 +60,7 @@ plugins{
 [Transform详解](https://www.jianshu.com/p/37a5e058830a)
 
 [10分钟了解Android项目构建流程](https://juejin.cn/post/6844903555795517453#heading-8) 
-# imc
+
+[优化构建速度](https://developer.android.com/studio/build/optimize-your-build?hl=zh-cn)
+
+[深入浅出 Gradle Sync 优化](https://mp.weixin.qq.com/s/KMYSFterJblcRLPGOrPdNQ)

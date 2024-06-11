@@ -19,11 +19,10 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "icc"
+rootProject.name = "imc"
 include(":app")
 include(
-//    ":base-plugin", ":base-plugin-ktx",
-//    ":ibc:ibc-api", ":ibc:ibc-processor", ":ibc:ibc-gradle-plugin",
-//    ":temple-gradle-plugin"
+    ":base-plugin", ":base-plugin-ktx",
+    ":ibc:ibc-api", ":ibc:ibc-processor", ":ibc:ibc-gradle-plugin",
 )
  
