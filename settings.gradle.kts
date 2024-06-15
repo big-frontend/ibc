@@ -19,7 +19,7 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "imc"
+rootProject.name = "ibc"
 include(":app")
 include(
     ":base-plugin", ":base-plugin-ktx",
